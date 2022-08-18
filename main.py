@@ -42,11 +42,11 @@ def chr_remove(old, to_remove):
 def get_agentes():
     # SALVA AGENTES
 
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/agents?per_page=100"
+    base_url = "https://DOMAIN/api/v2/agents?per_page=100"
 
     headers = {'Accept': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     response = requests.get(base_url, auth=auth, headers=headers)
 
@@ -79,13 +79,13 @@ def traducoes(chamado):
 
 
 def get_chamados():
-    filter_ticket = 'https://fotosensores-dnit.freshdesk.com/api/v2/search/tickets'
+    filter_ticket = 'https://DOMAIN/api/v2/search/tickets'
 
     base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
 
     headers = {'Accept': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     cols = ['ID do ticket', 'Status', 'Assunto', 'Prioridade', 'Tipo', 'Agente', 'Data de Criação', 'Tags', 'FOTOBOT']
 
@@ -166,11 +166,11 @@ def get_chamados():
 
 
 def create_ticket(titulo, descricao, contato):
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
+    base_url = "https://DOMAIN/api/v2/tickets"
 
     headers = {'Content-Type': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     exemple = {
         'subject': titulo,
@@ -192,11 +192,11 @@ def create_ticket(titulo, descricao, contato):
 
 
 def create_service_task(parent_id, titulo, descricao, local_servico, responsavel):
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
+    base_url = "https://DOMAIN/api/v2/tickets"
 
     headers = {'Content-Type': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     hoje = date_iso_format()
 
@@ -228,11 +228,11 @@ def create_service_task(parent_id, titulo, descricao, local_servico, responsavel
 
 
 def add_reply(ticket_id, anotacao):
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
+    base_url = "https:/DOMAIN/api/v2/tickets"
 
     headers = {'Content-Type': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     verificacao = datetime.today()
 
@@ -251,11 +251,11 @@ def add_reply(ticket_id, anotacao):
 
 
 def close_ticket(ticket_id):
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
+    base_url = "https://DOMAIN/api/v2/tickets"
 
     headers = {'Content-Type': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     ticket = {
 
@@ -269,11 +269,11 @@ def close_ticket(ticket_id):
 
 
 def close_task(ticket_id):
-    base_url = "https://fotosensores-dnit.freshdesk.com/api/v2/tickets"
+    base_url = "https://DOMAIN/api/v2/tickets"
 
     headers = {'Content-Type': 'application/json'}
 
-    auth = HTTPBasicAuth('G8jg3T9KHgD5GlyaQmVq', '')
+    auth = HTTPBasicAuth('USER TOKEN', '')
 
     task = {
         'custom_fields': {
@@ -309,9 +309,9 @@ def cria_lista_central():
 
     senha = driver.find_element(By.NAME, value='password')
 
-    login.send_keys('fabio.silva@fotosensores.com')
+    login.send_keys('USER LOGIN')
 
-    senha.send_keys('Gogeta96@')
+    senha.send_keys('USER PASSWORD')
 
     click = driver.find_element(By.NAME, value='entrar')
 
